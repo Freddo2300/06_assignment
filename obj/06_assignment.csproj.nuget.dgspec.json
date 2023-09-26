@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/fred/Documents/Experis/assignments/06_assignment/06_assignment.csproj": {}
+    "/Users/mansourhamidi/Documents/Experis/CSharpAssignments/06_assignment/06_assignment.csproj": {}
   },
   "projects": {
-    "/home/fred/Documents/Experis/assignments/06_assignment/06_assignment.csproj": {
+    "/Users/mansourhamidi/Documents/Experis/CSharpAssignments/06_assignment/06_assignment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/fred/Documents/Experis/assignments/06_assignment/06_assignment.csproj",
+        "projectUniqueName": "/Users/mansourhamidi/Documents/Experis/CSharpAssignments/06_assignment/06_assignment.csproj",
         "projectName": "06_assignment",
-        "projectPath": "/home/fred/Documents/Experis/assignments/06_assignment/06_assignment.csproj",
-        "packagesPath": "/home/fred/.nuget/packages/",
-        "outputPath": "/home/fred/Documents/Experis/assignments/06_assignment/obj/",
+        "projectPath": "/Users/mansourhamidi/Documents/Experis/CSharpAssignments/06_assignment/06_assignment.csproj",
+        "packagesPath": "/Users/mansourhamidi/.nuget/packages/",
+        "outputPath": "/Users/mansourhamidi/Documents/Experis/CSharpAssignments/06_assignment/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/fred/.nuget/NuGet/NuGet.Config"
+          "/Users/mansourhamidi/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "/usr/local/share/dotnet/sdk/7.0.308/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,6 +41,20 @@
           "targetAlias": "net7.0",
           "dependencies": {
             "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.11, )"
             },
@@ -66,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.401/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.308/RuntimeIdentifierGraph.json"
         }
       }
     }
