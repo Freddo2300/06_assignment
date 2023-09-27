@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WebAPI.Models
+﻿namespace WebAPI.Models
 {
     public class Character
     {
@@ -9,6 +7,6 @@ namespace WebAPI.Models
         public string Alias { get; set; }
         public string Gender { get; set; }
         public string PictureUrl { get; set; } // URL to the photo
-        public ICollection<CharacterMovie> Movies { get; set; }
+        public ICollection<Movie> Movies { get; set; }
         }
 }

@@ -1,4 +1,4 @@
-namespace _06_assignment;
+namespace WebAPI.Src;
 
 public class WeatherForecast
 {

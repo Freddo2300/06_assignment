@@ -1,8 +1,5 @@
-﻿using System;
-
-namespace WebAPI.Models
+﻿namespace WebAPI.Models
 {
-
     public class Movie
     {
         public int Id { get; set; }
@@ -13,8 +10,6 @@ namespace WebAPI.Models
         public string Picture { get; set; } // URL 
         public string Trailer { get; set; }
         public Franchise Franchise { get; set; }
-        public int FranchiseId { get; set; }
-
-        public ICollection<CharacterMovie> Characters { get; set; }
+        public ICollection<Character> Characters { get; set; }
     }
 }
