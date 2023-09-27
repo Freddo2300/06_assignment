@@ -1,5 +1,6 @@
 ﻿using System;
-namespace _06_assignment.Model
+
+namespace WebAPI.Models
 {
 	public class Franchise
 	{
@@ -7,6 +8,7 @@ namespace _06_assignment.Model
 		public string Name { get; set; }
 		public string Description { get; set; }
 		public ICollection<Movie> Movies { get; set; }
+		public int FranchiseId { get; set; }
+
 	}
 }
-

@@ -1,7 +1,14 @@
-using _06_assignment;
 using Microsoft.EntityFrameworkCore;
 
-var builder = WebApplication.CreateBuilder(args);
+using WebAPI.Models;
+
+namespace WebAPI
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -32,3 +39,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+        }
+    }
+}
