@@ -1,0 +1,8 @@
+sqldata:
+  container_name: sqldata
+  image: mcr.microsoft.com/mssql/server:2022-latest
+  environment:
+    - ACCEPT_EULA=Y
+    - MSSQL_SA_PASSWORD=@C4StaW3y
+  ports:
+    - "5434:1433"
