@@ -34,7 +34,7 @@ namespace _06_assignment
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Many-to-many relationship between Movie and Character
-            m// Configuring the MovieCharacter table in the database
+            // Configuring the MovieCharacter table in the database
 modelBuilder.Entity<MovieCharacter>()
     // Setting a composite primary key using both MovieId and CharacterId. 
     // This means that the combination of MovieId and CharacterId must be unique for each row.
