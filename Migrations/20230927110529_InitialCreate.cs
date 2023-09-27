@@ -67,33 +67,33 @@ namespace WebAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CharacterMovies",
+                name: "CharacterMovie",
                 columns: table => new
                 {
-                    CharacterId = table.Column<int>(type: "int", nullable: false),
-                    MovieId = table.Column<int>(type: "int", nullable: false)
+                    CharactersId = table.Column<int>(type: "int", nullable: false),
+                    MoviesId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CharacterMovies", x => new { x.MovieId, x.CharacterId });
+                    table.PrimaryKey("PK_CharacterMovie", x => new { x.CharactersId, x.MoviesId });
                     table.ForeignKey(
-                        name: "FK_CharacterMovies_Characters_CharacterId",
-                        column: x => x.CharacterId,
+                        name: "FK_CharacterMovie_Characters_CharactersId",
+                        column: x => x.CharactersId,
                         principalTable: "Characters",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CharacterMovies_Movies_MovieId",
-                        column: x => x.MovieId,
+                        name: "FK_CharacterMovie_Movies_MoviesId",
+                        column: x => x.MoviesId,
                         principalTable: "Movies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CharacterMovies_CharacterId",
-                table: "CharacterMovies",
-                column: "CharacterId");
+                name: "IX_CharacterMovie_MoviesId",
+                table: "CharacterMovie",
+                column: "MoviesId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Movies_FranchiseId",
@@ -105,7 +105,7 @@ namespace WebAPI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CharacterMovies");
+                name: "CharacterMovie");
 
             migrationBuilder.DropTable(
                 name: "Characters");
