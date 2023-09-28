@@ -23,6 +23,7 @@ namespace WebAPI
             app.UseAuthorization();
 
             app.MapControllers();
+            //dotnet-aspnet-codegenerator -p "/Users/marcpedersem/Documents/experis/assignments/06_assignment/06_assignment.csproj" controller -name testModelController -api -m  -dc MyDemoDbContext -outDir Controllers -namespace My.Namespace.Controllers
 
             app.Run();
         }
