@@ -1,4 +1,4 @@
-namespace WebAPI.Data.DTO
+namespace WebAPI.Data.DTO.MovieDTO
 {
     public class MovieDTO
     {
@@ -6,6 +6,12 @@ namespace WebAPI.Data.DTO
         public string Title { get; set; } 
         
         
+    }
+
+    public class MovieCreateUpdateDTO
+    {   
+        public string Title { get; set; }
+    
     }
 }
 
