@@ -9,11 +9,11 @@ using WebAPI.Data;
 
 #nullable disable
 
-namespace dotnet_api_test.Migrations
+namespace WebAPI.Migrations
 {
     [DbContext(typeof(WebApiDbContext))]
-    [Migration("20230927130640_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230928130544_initialCreate")]
+    partial class initialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

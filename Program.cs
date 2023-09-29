@@ -6,14 +6,6 @@ namespace WebAPI.Data.DTO
 {
     class Program
     {
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-    
-
-        services.AddAutoMapper(typeof(MappingProfile));
-        }
-
         public static void Main(string[] args)
         
         {
@@ -25,15 +17,19 @@ namespace WebAPI.Data.DTO
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-        
+            builder.Services.AddDbContext<WebApiDbContext>();
 
-            
+            builder.Services.AddAutoMapper(typeof(MappingProfile));
 
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             app.UseSwagger();
-            app.UseSwaggerUI();
+            app.UseSwaggerUI(options =>
+                {
+                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+                    options.RoutePrefix = string.Empty;
+                });
 
             app.UseHttpsRedirection();
 

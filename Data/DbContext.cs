@@ -15,7 +15,7 @@ namespace WebAPI.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                Config["ConnectionString"]
+                Config.GetConnectionString("DefaultConnection")
             );
         }
 
