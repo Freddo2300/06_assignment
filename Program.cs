@@ -1,4 +1,5 @@
-using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
+using Microsoft.OpenApi.Models;
 
 using WebAPI.Data;
 
@@ -11,12 +12,35 @@ namespace WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddControllers();
+            // AddJsonOptions: Ignore self-referential cycles
+            builder.Services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                });
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "They shoot pictures don't they?",
+                    Description = "The web api that might change your life (if you just let it).",
+                    TermsOfService = new Uri("https://google.com"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Frederik Strøm Friborg",
+                        Url = new Uri("https://github.com/Freddo2300")
+                    }
+                });
 
+                var xmlFilename = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+            });
+
+            // Add the database context to the controllers
             builder.Services.AddDbContext<WebApiDbContext>();
 
             var app = builder.Build();

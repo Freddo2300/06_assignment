@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebAPI.Data;
 using WebAPI.Data.Entities;
@@ -57,6 +58,36 @@ namespace WebAPI.Services.CharacterService
             _context.Remove(character);
 
             await _context.SaveChangesAsync();
+        }
+
+        Task<ActionResult<IEnumerable<Character>>> ICharacterService.GetCharacters()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ActionResult<Character>> GetCharacter(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IActionResult> PutCharacter(int id, Character character)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ActionResult<Character>> PostCharacter(Character character)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> ICharacterService.DeleteCharacter(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool ICharacterService.CharacterExists(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

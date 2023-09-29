@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebAPI.Data;
@@ -15,13 +10,19 @@ namespace WebAPI.Controllers
     public class CharacterController : ControllerBase
     {
         private readonly WebApiDbContext _context;
-
+        
         public CharacterController(WebApiDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Character
+        /// <summary>
+        /// GET: /api/Character
+        /// </summary>
+        /// <returns></returns>
+        /// <remarks>
+        /// Get all the characters in the API.
+        /// </remarks>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Character>>> GetCharacters()
         {

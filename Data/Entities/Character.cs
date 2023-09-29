@@ -19,6 +19,6 @@ namespace WebAPI.Data.Entities
         [StringLength(200)]
         public string? PictureUrl { get; set; }
         
-        public ICollection<Movie>? Movies { get; set; }
+        public ICollection<Movie> Movies { get; set; }
     }
 }
