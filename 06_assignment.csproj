@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>WebAPI</RootNamespace>
+    <UserSecretsId>b5f31a54-d80b-4617-a939-3c21ada652c2</UserSecretsId>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
@@ -33,14 +34,10 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
+  
   <ItemGroup>
-    <CSFiles Include="./src/**/*.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Model\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
+    <CSFiles Include="./Data/**/*.cs" />
+    <CSFiles Include="./Migrations/**/*.cs" />
   </ItemGroup>
 </Project>
+
