@@ -1,3 +1,6 @@
+using WebAPI.Data;
+using WebAPI.Data.Entities;
+
 namespace WebAPI
 {
     class Program
@@ -23,7 +26,7 @@ namespace WebAPI
             app.UseAuthorization();
 
             app.MapControllers();
-            //dotnet-aspnet-codegenerator -p "/Users/marcpedersem/Documents/experis/assignments/06_assignment/06_assignment.csproj" controller -name testModelController -api -m  -dc MyDemoDbContext -outDir Controllers -namespace My.Namespace.Controllers
+            //dotnet-aspnet-codegenerator -p "/Users/marcpedersem/Documents/experis/assignments/06_assignment/06_assignment.csproj" controller -name testModelController -api -m WebAPI.Controllers -dc DbContext -outDir Controllers -namespace My.Namespace.Controllers
 
             app.Run();
         }
