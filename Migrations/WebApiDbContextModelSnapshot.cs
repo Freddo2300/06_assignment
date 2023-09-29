@@ -8,7 +8,7 @@ using WebAPI.Data;
 
 #nullable disable
 
-namespace dotnet_api_test.Migrations
+namespace WebAPI.Migrations
 {
     [DbContext(typeof(WebApiDbContext))]
     partial class WebApiDbContextModelSnapshot : ModelSnapshot
