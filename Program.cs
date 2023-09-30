@@ -1,14 +1,13 @@
 using System.Text.Json.Serialization;
 using Microsoft.OpenApi.Models;
+using AutoMapper;
 
-using WebAPI.Data;
-
-
-namespace WebAPI
+namespace WebAPI.Data.DTO
 {
     class Program
     {
         public static void Main(string[] args)
+        
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +42,8 @@ namespace WebAPI
             // Add the database context to the controllers
             builder.Services.AddDbContext<WebApiDbContext>();
 
+            builder.Services.AddAutoMapper(typeof(MappingProfile));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -63,3 +64,4 @@ namespace WebAPI
         }
     }
 }
+

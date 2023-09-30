@@ -79,13 +79,13 @@ namespace WebAPI.Services.CharacterService
         {
             throw new NotImplementedException();
         }
-
-        Task<IActionResult> ICharacterService.DeleteCharacter(int id)
+        
+        bool ICharacterService.CharacterExists(int id)
         {
             throw new NotImplementedException();
         }
 
-        bool ICharacterService.CharacterExists(int id)
+        Task<IActionResult> ICharacterService.DeleteCharacter(int id)
         {
             throw new NotImplementedException();
         }
