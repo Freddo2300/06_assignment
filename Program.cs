@@ -1,14 +1,14 @@
-
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 
-using WebAPI.Data;
+namespace WebAPI.Data.DTO
 
 
-namespace WebAPI
 {
     class Program
     {
         public static void Main(string[] args)
+        
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +19,8 @@ namespace WebAPI
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddDbContext<WebApiDbContext>();
+
+            builder.Services.AddAutoMapper(typeof(MappingProfile));
 
             var app = builder.Build();
 
@@ -41,3 +43,4 @@ namespace WebAPI
         }
     }
 }
+
