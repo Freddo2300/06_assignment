@@ -1,3 +1,4 @@
+using WebAPI.Services.MovieService;
 using AutoMapper;
 using System.Text.Json.Serialization;
 using Microsoft.OpenApi.Models;
@@ -6,6 +7,8 @@ using WebAPI.Data;
 using WebAPI.Services;
 using WebAPI.Services.CharacterService;
 using WebAPI.MappingProfiles;
+
+namespace WebAPI.Data.DTO
 
 namespace WebAPI
 {
@@ -47,6 +50,8 @@ namespace WebAPI
             builder.Services.AddScoped<ICharacterService, CharacterService>();
 
             // Add the database context to the controllers
+            builder.Services.AddScoped<IMovieService, MovieService>(); 
+
             builder.Services.AddDbContext<WebApiDbContext>();
 
             builder.Services.AddAutoMapper(typeof(CharacterProfile), typeof(FranchiseProfile), typeof(MovieProfile));
