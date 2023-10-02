@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
           {
               return NotFound();
           }
-            return await _context.Franchises.ToListAsync();
+            return await _context.Franchises.Include(f => f.Movies).ToListAsync();
         }
 
         // GET: api/Franchise/5

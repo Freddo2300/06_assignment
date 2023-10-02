@@ -21,6 +21,6 @@ namespace WebAPI.Data.Entities
         [Column(Order=3, TypeName="ntext")]
         public required string Description { get; set; }
         
-        public ICollection<Movie>? Movies { get; set; }
+        public ICollection<Movie> Movies { get; set; }
     }
 }

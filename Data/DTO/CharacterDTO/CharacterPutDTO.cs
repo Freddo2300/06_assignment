@@ -1,4 +1,4 @@
-namespace WebAPI.Data.DTO
+namespace WebAPI.Data.DTO.CharacterDTO
 {
     using System.ComponentModel.DataAnnotations;
 
