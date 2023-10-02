@@ -191,7 +191,6 @@ namespace WebAPI.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<int?>("FranchiseId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Genre")
@@ -259,9 +258,7 @@ namespace WebAPI.Migrations
                 {
                     b.HasOne("WebAPI.Data.Entities.Franchise", "Franchise")
                         .WithMany("Movies")
-                        .HasForeignKey("FranchiseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FranchiseId");
 
                     b.Navigation("Franchise");
                 });

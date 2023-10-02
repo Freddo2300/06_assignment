@@ -22,7 +22,7 @@ namespace WebAPI.Services.MovieService
         Task<Movie> DeleteMovie(int id);
 
         // Update
-        Task UpdateMovie(Movie movie);
+        Task<bool> UpdateMovie(Movie movie);
 
         // Delete
     }

@@ -53,7 +53,7 @@ namespace WebAPI.Migrations
                     Director = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     PictureUrl = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     TrailerUrl = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    FranchiseId = table.Column<int>(type: "int", nullable: false)
+                    FranchiseId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -62,8 +62,7 @@ namespace WebAPI.Migrations
                         name: "FK_Movie_Franchise_FranchiseId",
                         column: x => x.FranchiseId,
                         principalTable: "Franchise",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(

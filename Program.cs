@@ -49,9 +49,9 @@ namespace WebAPI
                 options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
             });
             
+            // Add the database context to the controllers
             builder.Services.AddScoped<ICharacterService, CharacterService>();
             builder.Services.AddScoped<IFranchiseService, FranchiseService>();
-            // Add the database context to the controllers
             builder.Services.AddScoped<IMovieService, MovieService>(); 
 
             builder.Services.AddDbContext<WebApiDbContext>();

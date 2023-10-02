@@ -12,7 +12,7 @@ using WebAPI.Data;
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(WebApiDbContext))]
-    [Migration("20231002105048_initialCreate")]
+    [Migration("20231002143310_initialCreate")]
     partial class initialCreate
     {
         /// <inheritdoc />
@@ -194,7 +194,6 @@ namespace WebAPI.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<int?>("FranchiseId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Genre")
@@ -262,9 +261,7 @@ namespace WebAPI.Migrations
                 {
                     b.HasOne("WebAPI.Data.Entities.Franchise", "Franchise")
                         .WithMany("Movies")
-                        .HasForeignKey("FranchiseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FranchiseId");
 
                     b.Navigation("Franchise");
                 });

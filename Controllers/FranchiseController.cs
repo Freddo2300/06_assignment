@@ -102,7 +102,7 @@ namespace WebAPI.Controllers
             if (!working) {
                 return NotFound();
             }
-            return NoContent();
+            return Ok();
         }
 
         private bool FranchiseExists(int id)
