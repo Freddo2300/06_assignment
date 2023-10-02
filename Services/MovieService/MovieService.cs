@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Http;
 
 
 
+
 namespace WebAPI.Services.MovieService
 {
     public class MovieService : IMovieService
@@ -99,6 +100,8 @@ namespace WebAPI.Services.MovieService
         {
             var movie = await _context.Movies
                 .Where(m => m.Id == id)
+                .Include(m => m.Characters)
+                .Include(m => m.Franchise)
                 .SingleOrDefaultAsync();
 
             if (movie == null)
@@ -109,16 +112,16 @@ namespace WebAPI.Services.MovieService
             return movie;
         }
 
-
-
-        // public async Task<ICollection<Movie>> GetMovies()
-        // {
-        //     return await _context.Movies.ToListAsync();
-        // }
-
         public async Task<IEnumerable<Movie>> GetMovies()
         {
-            return await _context.Movies.ToListAsync();
+            if (_context.Movies == null)
+            {
+                return null;
+            }
+            return await _context.Movies
+            .Include(m => m.Characters)
+            .Include(m => m.Franchise)
+            .ToListAsync();
         }
 
 
@@ -155,11 +158,12 @@ namespace WebAPI.Services.MovieService
             return movie;
         }
 
-        public async Task UpdateMovie(Movie movie)
+        public async Task<bool> UpdateMovie(Movie movie)
         {
             _context.Entry(movie).State = EntityState.Modified;
 
             await _context.SaveChangesAsync();
+            return true;
         }
     }
 }

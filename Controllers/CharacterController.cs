@@ -61,5 +61,14 @@ namespace WebAPI.Controllers
                 await _characterService.PostCharacter(_mapper.Map<Character>(characterDTO))
             );
         }
+
+        // DELETE: api/Franchise/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteFranchise(int id)
+        {
+            await _characterService.DeleteCharacter(id);
+            
+            return Ok();
+        }
     }
 }
