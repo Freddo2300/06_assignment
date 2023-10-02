@@ -1,4 +1,6 @@
+using WebAPI.Services.MovieService;
 using AutoMapper;
+
 
 namespace WebAPI.Data.DTO
 
@@ -16,6 +18,9 @@ namespace WebAPI.Data.DTO
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<IMovieService, MovieService>(); 
+
 
             builder.Services.AddDbContext<WebApiDbContext>();
 
