@@ -27,7 +27,10 @@ namespace WebAPI.Controllers
             _mapper = mapper;
         }
 
-        // GET: api/Movie
+        /// <summary>
+        /// Get all movies
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MovieDTO>>> GetMovies()
         {
@@ -41,7 +44,11 @@ namespace WebAPI.Controllers
                 ));
         }
 
-        // GET: api/Movie/5
+        /// <summary>
+        /// Get single movie by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> GetMovie(int id)
         {
@@ -61,8 +68,12 @@ namespace WebAPI.Controllers
             // return movie;
         }
 
-        // PUT: api/Movie/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Update a single movie
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="movie"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutMovie(int id, MoviePutDTO movie)
         {
@@ -94,7 +105,11 @@ namespace WebAPI.Controllers
             // return NoContent();
         }
 
-        // POST: api/Movie
+        /// <summary>
+        /// Create a new movie
+        /// </summary>
+        /// <param name="movie"></param>
+        /// <returns></returns>
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Movie>> PostMovie(MoviePostDTO movie)
@@ -112,7 +127,11 @@ namespace WebAPI.Controllers
             // return CreatedAtAction("GetMovie", new { id = movie.Id }, movie);
         }
 
-        // DELETE: api/Movie/5
+        /// <summary>
+        /// Delete a movie
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMovie(int id)
         {

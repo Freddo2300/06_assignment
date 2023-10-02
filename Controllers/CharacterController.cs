@@ -22,6 +22,10 @@ namespace WebAPI.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Get all characters
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CharacterDTO>>> GetCharacters()
         {
@@ -31,6 +35,11 @@ namespace WebAPI.Controllers
                 ));
         }
 
+        /// <summary>
+        /// Get single character by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<CharacterDTO>> GetCharacter(int id)
         {
@@ -40,6 +49,12 @@ namespace WebAPI.Controllers
                 ));
         }
 
+        /// <summary>
+        /// Update character
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="characterDTO"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<ActionResult<Character>> PutCharacter(int id, CharacterPutDTO characterDTO)
         {   
@@ -54,6 +69,11 @@ namespace WebAPI.Controllers
             );
         }
 
+        /// <summary>
+        /// Create new character
+        /// </summary>
+        /// <param name="characterDTO"></param>
+        /// <returns></returns> 
         [HttpPost]
         public async Task<ActionResult<Character>> PostCharacter(CharacterPostDTO characterDTO)
         {
@@ -62,7 +82,11 @@ namespace WebAPI.Controllers
             );
         }
 
-        // DELETE: api/Franchise/5
+        /// <summary>
+        /// Delete character
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteFranchise(int id)
         {
