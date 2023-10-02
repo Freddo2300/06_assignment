@@ -45,7 +45,7 @@ namespace WebAPI.Services.MovieService
             if (!await MovieExists(id))
                 throw new Exception("Movie not found");
 
-            Movie movie = await GetMovieById(id);
+            Movie movie = await GetMovie(id);
 
             _context.Movies.Remove(movie);
             await _context.SaveChangesAsync();
@@ -95,7 +95,7 @@ namespace WebAPI.Services.MovieService
         //     return movie;
         // }
 
-        public async Task<Movie> GetMovieById(int id)
+        public async Task<Movie> GetMovie(int id)
         {
             var movie = await _context.Movies
                 .Where(m => m.Id == id)
@@ -160,11 +160,6 @@ namespace WebAPI.Services.MovieService
             _context.Entry(movie).State = EntityState.Modified;
 
             await _context.SaveChangesAsync();
-        }
-
-        public Task<Movie> GetMovie(int id)
-        {
-            throw new NotImplementedException();
         }
     }
 }
