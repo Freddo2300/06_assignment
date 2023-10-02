@@ -6,16 +6,16 @@ namespace WebAPI.Services.CharacterService
 {
     public interface ICharacterService
     {   
-        Task<ActionResult<IEnumerable<Character>>> GetCharacters();
+        Task<IEnumerable<Character>> GetCharacters();
 
-        Task<ActionResult<Character>> GetCharacter(int id);
+        Task<Character> GetCharacter(int id);
 
-        Task<IActionResult> PutCharacter(int id, Character character);
+        Task<Character> PutCharacter(Character character);
 
-        Task<ActionResult<Character>> PostCharacter(Character character);
+        Task<Character> PostCharacter(Character character);
 
-        Task<IActionResult> DeleteCharacter(int id);
+        Task DeleteCharacter(int id);
 
-        bool CharacterExists(int id);
+        Task<bool> CharacterExists(int id);
     }
 }

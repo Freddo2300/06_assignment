@@ -1,8 +1,13 @@
+using AutoMapper;
 using System.Text.Json.Serialization;
 using Microsoft.OpenApi.Models;
-using AutoMapper;
 
-namespace WebAPI.Data.DTO
+using WebAPI.Data;
+using WebAPI.Services;
+using WebAPI.Services.CharacterService;
+using WebAPI.MappingProfiles;
+
+namespace WebAPI
 {
     class Program
     {
@@ -38,11 +43,13 @@ namespace WebAPI.Data.DTO
                 var xmlFilename = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
             });
+            
+            builder.Services.AddScoped<ICharacterService, CharacterService>();
 
             // Add the database context to the controllers
             builder.Services.AddDbContext<WebApiDbContext>();
 
-            builder.Services.AddAutoMapper(typeof(MappingProfile));
+            builder.Services.AddAutoMapper(typeof(CharacterProfile), typeof(FranchiseProfile), typeof(MovieProfile));
 
             var app = builder.Build();
 
