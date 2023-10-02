@@ -1,22 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebAPI.Data.Entities;
 
 namespace WebAPI.Services.FranchiseService
 {
     public interface IFranchiseService
     {
-        Task<bool> FranchiseExists(int id);
+        bool FranchiseExists(int id);
 
-        Task<ICollection<Franchise>> GetFranchises();
+        Task<IEnumerable<Franchise>> GetFranchises();
 
         Task<Franchise> GetFranchiseById(int id);
 
         // Create
-        Task<Franchise> CreateFranchise(Franchise franchise);
+        Task<bool> CreateFranchise(Franchise franchise);
 
         // Update
-        Task UpdateFranchise(Franchise franchise);
+        Task<bool> UpdateFranchise(Franchise franchise);
 
         // Delete
-        Task DeleteFranchise(int id);
+        Task<bool> DeleteFranchise(int id);
     }
 }

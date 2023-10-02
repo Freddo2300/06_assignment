@@ -1,4 +1,4 @@
-namespace WebAPI.Data.DTO
+namespace WebAPI.Data.DTO.FranchiseDTO
 {
     using System.ComponentModel.DataAnnotations;
 

@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+using Microsoft.EntityFrameworkCore;
 using WebAPI.Services.MovieService;
 using AutoMapper;
 using System.Text.Json.Serialization;
@@ -7,8 +9,8 @@ using WebAPI.Data;
 using WebAPI.Services;
 using WebAPI.Services.CharacterService;
 using WebAPI.MappingProfiles;
+using WebAPI.Services.FranchiseService;
 
-namespace WebAPI.Data.DTO
 
 namespace WebAPI
 {
@@ -48,7 +50,7 @@ namespace WebAPI
             });
             
             builder.Services.AddScoped<ICharacterService, CharacterService>();
-
+            builder.Services.AddScoped<IFranchiseService, FranchiseService>();
             // Add the database context to the controllers
             builder.Services.AddScoped<IMovieService, MovieService>(); 
 
@@ -71,6 +73,7 @@ namespace WebAPI
             app.UseAuthorization();
 
             app.MapControllers();
+            //dotnet-aspnet-codegenerator -p "/Users/marcpedersem/Documents/experis/assignments/06_assignment/06_assignment.csproj" controller -name testModelController -api -m WebAPI.Controllers -dc DbContext -outDir Controllers -namespace My.Namespace.Controllers
 
             app.Run();
         }
