@@ -13,9 +13,9 @@ namespace WebAPI.Services.FranchiseService
     {
         bool FranchiseExists(int id);
 
-        Task<ActionResult<IEnumerable<Franchise>>> GetFranchises();
+        Task<IEnumerable<Franchise>> GetFranchises();
 
-        Task<ActionResult<Franchise>> GetFranchiseById(int id);
+        Task<Franchise> GetFranchiseById(int id);
 
         // Create
         Task<bool> CreateFranchise(Franchise franchise);

@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
+
 namespace WebAPI.Services.FranchiseService
 {
     public class FranchiseService : IFranchiseService
@@ -22,7 +24,7 @@ namespace WebAPI.Services.FranchiseService
         {
             return (_context.Franchises?.Any(e => e.Id == id)).GetValueOrDefault();
         }
-        public async Task<ActionResult<Franchise>> GetFranchiseById(int id)
+        public async Task<Franchise> GetFranchiseById(int id)
         {
             if (_context.Franchises == null)
             {
@@ -37,7 +39,7 @@ namespace WebAPI.Services.FranchiseService
             return franchise;
         }
 
-        public async Task<ActionResult<IEnumerable<Franchise>>> GetFranchises()
+        public async Task<IEnumerable<Franchise>> GetFranchises()
         {
             if (_context.Franchises == null)
           {
@@ -49,9 +51,9 @@ namespace WebAPI.Services.FranchiseService
         public async Task<bool> CreateFranchise(Franchise franchise)
         {
             if (_context.Franchises == null)
-          {
+            {
               return false;
-          }
+            }
             _context.Franchises.Add(franchise);
             await _context.SaveChangesAsync();
 
