@@ -30,7 +30,10 @@ namespace WebAPI.Controllers
             _mapper = mapper;            
         }
 
-        // GET: api/Franchise
+        /// <summary>
+        /// Get all franchises
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<FranchiseDTO>>> GetFranchises()
         {
@@ -40,7 +43,11 @@ namespace WebAPI.Controllers
                 ));           
         }
 
-        // GET: api/Franchise/5
+        /// <summary>
+        /// Get a single franchise
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<FranchiseDTO>> GetFranchise(int id)
         {
@@ -50,8 +57,12 @@ namespace WebAPI.Controllers
                 ));
         }
 
-        // PUT: api/Franchise/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Update a single franchise
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="franchise"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutFranchise(int id, FranchisePutDTO franchise)
         {
@@ -72,7 +83,11 @@ namespace WebAPI.Controllers
             // return NoContent();
         }
 
-        // POST: api/Franchise
+        /// <summary>
+        /// Create a new franchise
+        /// </summary>
+        /// <param name="franchise"></param>
+        /// <returns></returns>
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<FranchisePostDTO>> PostFranchise(FranchisePostDTO franchise)
@@ -94,7 +109,11 @@ namespace WebAPI.Controllers
             // return CreatedAtAction("GetFranchise", new { id = franchise.Id }, franchiseDTO);
         }
 
-        // DELETE: api/Franchise/5
+        /// <summary>
+        /// Delete a franchise
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteFranchise(int id)
         {
