@@ -9,6 +9,7 @@ using WebAPI.Data;
 using WebAPI.Data.Entities;
 using WebAPI.Services.FranchiseService;
 using WebAPI.Data.DTO.FranchiseDTO;
+using WebAPI.Data.DTO;
 
 namespace WebAPI.Controllers
 {
@@ -62,7 +63,7 @@ namespace WebAPI.Controllers
         // PUT: api/Franchise/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutFranchise(int id, FranchisePutDTO franchise)
+        public async Task<IActionResult> PutFranchise(int id, Franchise franchise)
         {
             if (id != franchise.Id)
             {
@@ -94,7 +95,7 @@ namespace WebAPI.Controllers
             FranchisePostDTO franchiseDTO = new();
 
             franchiseDTO.Name = franchise.Name;
-            franchiseDTO.Id = franchise.Description;
+            //franchiseDTO.Id = franchise.Description;
 
             return CreatedAtAction("GetFranchise", new { id = franchise.Id }, franchiseDTO);
         }
