@@ -191,6 +191,7 @@ namespace WebAPI.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<int?>("FranchiseId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Genre")
@@ -225,6 +226,7 @@ namespace WebAPI.Migrations
                         {
                             Id = 1,
                             Director = "Peter Jackson",
+                            FranchiseId = 1,
                             ReleaseYear = 2001,
                             Title = "Lord of the Rings: The Fellowship of the Ring"
                         },
@@ -232,6 +234,7 @@ namespace WebAPI.Migrations
                         {
                             Id = 2,
                             Director = "George Lucas",
+                            FranchiseId = 2,
                             ReleaseYear = 1977,
                             Title = "Star Wars: A New Hope"
                         });
@@ -254,9 +257,13 @@ namespace WebAPI.Migrations
 
             modelBuilder.Entity("WebAPI.Data.Entities.Movie", b =>
                 {
-                    b.HasOne("WebAPI.Data.Entities.Franchise", null)
+                    b.HasOne("WebAPI.Data.Entities.Franchise", "Franchise")
                         .WithMany("Movies")
-                        .HasForeignKey("FranchiseId");
+                        .HasForeignKey("FranchiseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Franchise");
                 });
 
             modelBuilder.Entity("WebAPI.Data.Entities.Franchise", b =>

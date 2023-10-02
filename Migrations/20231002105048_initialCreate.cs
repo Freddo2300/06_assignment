@@ -53,7 +53,7 @@ namespace WebAPI.Migrations
                     Director = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     PictureUrl = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     TrailerUrl = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    FranchiseId = table.Column<int>(type: "int", nullable: true)
+                    FranchiseId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -62,7 +62,8 @@ namespace WebAPI.Migrations
                         name: "FK_Movie_Franchise_FranchiseId",
                         column: x => x.FranchiseId,
                         principalTable: "Franchise",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -115,8 +116,8 @@ namespace WebAPI.Migrations
                 columns: new[] { "Id", "Director", "FranchiseId", "Genre", "PictureUrl", "ReleaseYear", "Title", "TrailerUrl" },
                 values: new object[,]
                 {
-                    { 1, "Peter Jackson", null, null, null, 2001, "Lord of the Rings: The Fellowship of the Ring", null },
-                    { 2, "George Lucas", null, null, null, 1977, "Star Wars: A New Hope", null }
+                    { 1, "Peter Jackson", 1, null, null, 2001, "Lord of the Rings: The Fellowship of the Ring", null },
+                    { 2, "George Lucas", 2, null, null, 1977, "Star Wars: A New Hope", null }
                 });
 
             migrationBuilder.InsertData(

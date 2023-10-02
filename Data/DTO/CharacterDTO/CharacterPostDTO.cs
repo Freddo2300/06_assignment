@@ -1,4 +1,4 @@
-namespace WebAPI.Data.DTO
+namespace WebAPI.Data.DTO.CharacterDTO
 {
     using System.ComponentModel.DataAnnotations;
 
@@ -8,9 +8,9 @@ namespace WebAPI.Data.DTO
         public string FullName { get; set; }
 
         [StringLength(20)]
-        public string? Alias { get; set; }
+        public string Alias { get; set; }
 
         [StringLength(200)]
-        public string? PictureUrl { get; set; }
+        public string PictureUrl { get; set; }
     }
 }

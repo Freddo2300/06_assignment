@@ -2,11 +2,17 @@ using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using WebAPI.Services.MovieService;
 using AutoMapper;
+using System.Text.Json.Serialization;
+using Microsoft.OpenApi.Models;
+
+using WebAPI.Data;
+using WebAPI.Services;
+using WebAPI.Services.CharacterService;
+using WebAPI.MappingProfiles;
+using WebAPI.Services.FranchiseService;
 
 
-namespace WebAPI.Data.DTO
-
-
+namespace WebAPI
 {
     class Program
     {
@@ -15,22 +21,42 @@ namespace WebAPI.Data.DTO
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            // AddJsonOptions: Ignore self-referential cycles
             builder.Services.AddControllers()
-                .AddJsonOptions(options => 
+                .AddJsonOptions(options =>
                 {
                     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
                 });
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "They shoot pictures don't they?",
+                    Description = "The web api that might change your life (if you just let it).",
+                    TermsOfService = new Uri("https://google.com"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Frederik Strøm Friborg",
+                        Url = new Uri("https://github.com/Freddo2300")
+                    }
+                });
 
+                var xmlFilename = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+            });
+            
+            builder.Services.AddScoped<ICharacterService, CharacterService>();
+            builder.Services.AddScoped<IFranchiseService, FranchiseService>();
+            // Add the database context to the controllers
             builder.Services.AddScoped<IMovieService, MovieService>(); 
-
 
             builder.Services.AddDbContext<WebApiDbContext>();
 
-            builder.Services.AddAutoMapper(typeof(MappingProfile));
+            builder.Services.AddAutoMapper(typeof(CharacterProfile), typeof(FranchiseProfile), typeof(MovieProfile));
 
             var app = builder.Build();
 

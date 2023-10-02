@@ -29,7 +29,12 @@ namespace WebAPI.Data.Entities
 
         [StringLength(100)]
         public string? TrailerUrl { get; set; }
-        //public Franchise? Franchise { get; set; }
-        public ICollection<Character>? Characters { get; set; }
+
+        public int? FranchiseId { get; set; }
+
+        [ForeignKey(name: "FranchiseId")]
+        public Franchise Franchise { get; set; }
+
+        public ICollection<Character> Characters { get; set; }
     }
 }

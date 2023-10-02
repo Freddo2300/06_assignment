@@ -30,7 +30,10 @@ namespace WebAPI.Services.FranchiseService
             {
                 return null;
             }
-            var franchise = await _context.Franchises.FindAsync(id);
+            var franchise = await _context.Franchises
+                    .Where(f => f.Id == id)
+                    .Include(f => f.Movies)
+                    .SingleOrDefaultAsync() ?? throw new Exception("Could not find Franchise");
 
             if (franchise == null)
             {
@@ -45,7 +48,8 @@ namespace WebAPI.Services.FranchiseService
           {
               return null;
           }
-            return await _context.Franchises.ToListAsync();
+            return await _context.Franchises.
+                Include(f => f.Movies).ToListAsync();
         }
 
         public async Task<bool> CreateFranchise(Franchise franchise)

@@ -39,8 +39,8 @@ namespace WebAPI.Data
             );
 
             modelBuilder.Entity<Movie>().HasData(
-                new Movie() { Id = 1, Title = "Lord of the Rings: The Fellowship of the Ring", ReleaseYear = 2001, Director = "Peter Jackson" },
-                new Movie() { Id = 2, Title = "Star Wars: A New Hope", ReleaseYear = 1977, Director = "George Lucas" }
+                new Movie() { Id = 1, FranchiseId = 1, Title = "Lord of the Rings: The Fellowship of the Ring", ReleaseYear = 2001, Director = "Peter Jackson" },
+                new Movie() { Id = 2, FranchiseId = 2, Title = "Star Wars: A New Hope", ReleaseYear = 1977, Director = "George Lucas" }
             );
 
             modelBuilder.Entity<Movie>()

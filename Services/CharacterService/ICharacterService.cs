@@ -1,19 +1,21 @@
+using Microsoft.AspNetCore.Mvc;
+
 using WebAPI.Data.Entities;
 
 namespace WebAPI.Services.CharacterService
 {
     public interface ICharacterService
     {   
-        Task<bool> CharacterExists(int id);
+        Task<IEnumerable<Character>> GetCharacters();
 
-        Task<ICollection<Character>> GetCharacters();
+        Task<Character> GetCharacter(int id);
 
-        Task<Character> GetCharacterById(int id);
+        Task<Character> PutCharacter(Character character);
 
-        Task<Character> CreateCharacter(Character character);
-
-        Task UpdateCharacter(Character character);
+        Task<Character> PostCharacter(Character character);
 
         Task DeleteCharacter(int id);
+
+        Task<bool> CharacterExists(int id);
     }
 }
