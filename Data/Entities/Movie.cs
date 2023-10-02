@@ -33,7 +33,7 @@ namespace WebAPI.Data.Entities
         public int? FranchiseId { get; set; }
 
         [ForeignKey(name: "FranchiseId")]
-        public Franchise Franchise { get; set; }
+        public Franchise? Franchise { get; set; }
 
         public ICollection<Character> Characters { get; set; }
     }

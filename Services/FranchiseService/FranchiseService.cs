@@ -45,9 +45,9 @@ namespace WebAPI.Services.FranchiseService
         public async Task<IEnumerable<Franchise>> GetFranchises()
         {
             if (_context.Franchises == null)
-          {
-              return null;
-          }
+            {
+                return null;
+            }
             return await _context.Franchises.
                 Include(f => f.Movies).ToListAsync();
         }
