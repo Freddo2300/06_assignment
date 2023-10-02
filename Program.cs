@@ -19,7 +19,7 @@ namespace WebAPI.Data.DTO
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            Service.AddScoped<IMovieService, MovieService>(); 
+            builder.Services.AddScoped<IMovieService, MovieService>(); 
 
 
             builder.Services.AddDbContext<WebApiDbContext>();
